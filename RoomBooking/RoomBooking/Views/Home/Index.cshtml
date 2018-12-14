@@ -1,0 +1,32 @@
+﻿@model RoomBooking.Models.DashboardViewModel
+@{
+    ViewBag.Title = "Home";
+}
+
+<h2>Current Room Availability</h2>
+
+@foreach (var site in Model.GroupedData)
+{
+    <h3>@site.Site.Description</h3>
+
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Room</th>
+            <th scope="col">Times</th>
+            <th scope="col">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var r in site.Rooms)
+        {
+            <tr>
+                <td>@r.Description</td>
+                <td>@if(r.Bookings.Any()){@r.Bookings.First().ToBookingTimeString()}</td>
+                <td>@if(r.Bookings.Any()){@r.Bookings.First().Description}</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+}

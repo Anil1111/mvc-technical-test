@@ -1,0 +1,39 @@
+﻿<h2>Check Room Availability</h2>
+<h3>Please use the search functionality to find available rooms for you appointment/meeting.</h3>
+
+<div class="search">
+
+        <div class="form-group col-md-3">
+            <!--dropdown for selecting a specific site-->
+        </div>
+        <div class="form-group col-md-3">
+            <!--date/time picker for selecting a booking start time -->
+        </div>
+        <div class="form-group col-md-3">
+            <!--picker for selecting a booking duration (accuracy to 15 min intervals) -->
+        </div>
+        <div class="form-group col-md-3">
+            <!-- text box to enter number of attendees -->    
+        </div>
+
+        <button type="submit">Search</button>
+</div>
+
+
+<div class="results">
+    @if (Model.Results != null && Model.Results.Any())
+    {
+        //todo: Create a table of results showing available rooms, following data to be displayed:
+        //  * Site
+        //  * Room Descripton
+        //  * Max Occupancy if applicable.
+    }
+    else
+    {
+        <div class="alert alert-secondary" role="alert">
+           No results.
+        </div>
+    }
+</div>
+
+
